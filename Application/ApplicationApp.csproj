@@ -5,12 +5,8 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Compile Remove="Class1.cs" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Folder Include="Entities\" />
-    <Folder Include="Notifications\" />
+    <Folder Include="Interfaces\" />
+    <Folder Include="OpenApp\" />
   </ItemGroup>
 
 </Project>
