@@ -1,4 +1,5 @@
 ﻿using Entities.Entities;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.SqlServer;
 using System;
@@ -7,7 +8,7 @@ using System.Text;
 
 namespace Infrastructure.Configurations
 {
-    public class ContextBase : DbContext
+    public class ContextBase : IdentityDbContext<ApplicationUser>
     {
         public ContextBase(DbContextOptions<ContextBase> options) : base(options)
         {
