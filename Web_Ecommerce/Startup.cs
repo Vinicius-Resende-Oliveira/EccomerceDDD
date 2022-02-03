@@ -1,4 +1,12 @@
+using ApplicationApp.Interfaces;
+using ApplicationApp.OpenApp;
+using Domain.Interfaces.Generics;
+using Domain.Interfaces.InterfaceProduct;
+using Domain.Interfaces.InterfaceServices;
+using Domain.Services;
 using Infrastructure.Configurations;
+using Infrastructure.Repository.Generics;
+using Infrastructure.Repository.Repositories;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
@@ -35,6 +43,16 @@ namespace Web_Ecommerce
                 .AddEntityFrameworkStores<ContextBase>();
             services.AddControllersWithViews();
             services.AddRazorPages();
+
+            // INTERFACE E REPOSITÓRIO
+            services.AddSingleton(typeof(IGeneric<>), typeof(RepositoryGeneric<>));
+            services.AddSingleton<IProduct, RepositoryProduct>();
+
+            // INTERFACE APLICAÇÃO
+            services.AddSingleton<InterfaceProduct, AppProduct>();
+            
+            // INTERFACE SERVIÇÕS
+            services.AddSingleton<IServiceProduct, ServiceProduct>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
