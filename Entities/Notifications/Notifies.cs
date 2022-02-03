@@ -9,7 +9,7 @@ namespace Entities.Notifications
     {
         public Notifies()
         {
-            Notification = new List<Notifies>();
+            Notitycoes = new List<Notifies>();
         }
 
         [NotMapped]
@@ -19,12 +19,12 @@ namespace Entities.Notifications
         public string Message { get; set; }
 
         [NotMapped]
-        public List<Notifies> Notification{ get; set; }
+        public List<Notifies> Notitycoes { get; set; }
 
         public bool ValidatorPropertyString(string valor, string nomePropriedade)
         {
             if (string.IsNullOrWhiteSpace(valor) || string.IsNullOrWhiteSpace(nomePropriedade)){
-                Notification.Add(new Notifies 
+                Notitycoes.Add(new Notifies 
                 { 
                     Message = "Campo obrigatório",
                     NomePropriedade = nomePropriedade
@@ -40,7 +40,7 @@ namespace Entities.Notifications
         public bool ValidatorPropertyInt(int valor, string nomePropriedade)
         {
             if (valor < 1 || string.IsNullOrWhiteSpace(nomePropriedade)){
-                Notification.Add(new Notifies
+                Notitycoes.Add(new Notifies
                 {
                     Message = "Valor deve ser maior que 0",
                     NomePropriedade = nomePropriedade
@@ -56,7 +56,7 @@ namespace Entities.Notifications
         public bool ValidatorPropertyDecimal(decimal valor, string nomePropriedade)
         {
             if (valor < 1 || string.IsNullOrWhiteSpace(nomePropriedade)){
-                Notification.Add(new Notifies
+                Notitycoes.Add(new Notifies
                 {
                     Message = "Valor deve ser maior que 0",
                     NomePropriedade = nomePropriedade
